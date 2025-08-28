@@ -1,6 +1,6 @@
-# 📚 Libraria - Sistem Informasi Perpustakaan
+# 📚 Digital Library - Sistem Informasi Perpustakaan SMP Negeri 1 Ciamis
 
-**Libraria** adalah sistem informasi perpustakaan modern yang dirancang untuk mempermudah pengelolaan buku, pengguna, transaksi peminjaman, serta laporan statistik. Dibangun dengan **Laravel**, **Inertia.js**, dan **React.js**, serta didukung oleh **TailwindCSS** dengan UI kit **ShadCN**, Libraria menawarkan pengalaman yang cepat, responsif, dan intuitif.
+**Digital Library** adalah sistem informasi perpustakaan modern yang dirancang untuk mempermudah pengelolaan buku, pengguna, transaksi peminjaman, serta laporan statistik di SMP Negeri 1 Ciamis. Dibangun dengan **Laravel**, **Inertia.js**, dan **React.js**, serta didukung oleh **TailwindCSS** dengan UI kit **ShadCN**, Digital Library menawarkan pengalaman yang cepat, responsif, dan intuitif.
 
 ## ✨ Fitur Utama
 
@@ -17,7 +17,7 @@
 
 - **Backend:** Laravel + Inertia.js
 - **Frontend:** React.js + TailwindCSS + ShadCN UI
-- **Database:** MySQL / PostgreSQL
+- **Database:** MySQL
 - **Payment Gateway:** Midtrans
 
-🚀 **Libraria** dirancang untuk memberikan pengalaman pengelolaan perpustakaan yang modern, efisien, dan fleksibel.
+🚀 **Digital Library** dirancang untuk memberikan pengalaman pengelolaan perpustakaan yang modern, efisien, dan fleksibel di lingkungan SMP Negeri 1 Ciamis.
