@@ -123,7 +123,7 @@ export default function Register() {
                 </div>
                 <div className="hidden bg-muted lg:block">
                     <img
-                        src="/images/login.webp"
+                        src="/images/login.png"
                         alt="login"
                         className="h-full w-full object-cover dark:brightness-[0.4] dark:grayscale"
                     />

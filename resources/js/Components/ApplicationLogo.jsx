@@ -1,15 +1,17 @@
-import { cn } from '@/lib/utils';
 import { Link } from '@inertiajs/react';
-import { IconInnerShadowBottomRight } from '@tabler/icons-react';
 
 export default function ApplicationLogo({ url = '/', size = 'size-9', isTitle = true }) {
     return (
         <Link href={url} className="flex items-center gap-2">
-            <IconInnerShadowBottomRight className={cn('text-blue-500', size)} />
+            <img src="/images/logo.png" className="w-8" />
             {isTitle && (
                 <div className="flex flex-col">
-                    <span className="font-bold leading-none text-foreground">Libraria</span>
-                    <span className="text-xs font-medium text-muted-foreground">Jelajahi Ilmu, Temukan Dunia</span>
+                    <span className="text-sm font-bold leading-none text-foreground">
+                        SMP Negeri 1 | Sukamantri Ciamis
+                    </span>
+                    <span className="line-clamp-1 text-xs font-medium text-muted-foreground">
+                        Jl. Raya Barat No.218, Cibeureum, Kec. Sukamantri, Kabupaten Ciamis, Jawa Barat 46264
+                    </span>
                 </div>
             )}
         </Link>

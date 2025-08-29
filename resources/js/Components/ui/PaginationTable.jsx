@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
 import { Link } from '@inertiajs/react';
-import { buttonVariants } from './ui/button';
-import { Pagination, PaginationContent, PaginationItem, PaginationNext, PaginationPrevious } from './ui/pagination';
+import { buttonVariants } from './button';
+import { Pagination, PaginationContent, PaginationItem, PaginationNext, PaginationPrevious } from './pagination';
 
 const PaginationLink = ({ className, isActive, size = 'icon', href, ...props }) => {
     if (!href) {
