@@ -1,3 +1,4 @@
+import BookCard from '@/Components/BookCard';
 import CardStat from '@/Components/CardStat';
 import ChartCustom from '@/Components/ChartCustom';
 import HeaderTitle from '@/Components/HeaderTitle';
@@ -19,9 +20,9 @@ import {
 
 export default function Dashboard(props) {
     const { user } = props.auth;
-
+    console.log(props);
     return (
-        <div className="flex flex-col w-full pb-32 space-y-4">
+        <div className="flex w-full flex-col space-y-4 pb-32">
             <div className="flex flex-col items-start justify-between gap-y-4 lg:flex-row lg:items-center">
                 <HeaderTitle
                     title={props.page_setting.title}
@@ -110,7 +111,7 @@ export default function Dashboard(props) {
                 </div>
             )}
 
-            <div className="flex flex-col justify-between w-full gap-2 lg:flex-row">
+            <div className="flex w-full flex-col justify-between gap-2 lg:flex-row">
                 <Card className="w-full lg:w-1/2">
                     <CardHeader>
                         <div className="flex flex-col justify-between gap-y-4 lg:flex-row lg:items-center">
@@ -227,6 +228,23 @@ export default function Dashboard(props) {
                     </CardContent>
                 </Card>
             </div>
+
+            {user.role.some((role) => ['member'].includes(role)) && props.book_recommendations.length > 0 && (
+                <div className="flex w-full flex-col space-y-6 py-10">
+                    <div className="flex flex-col items-start justify-between gap-y-4 lg:flex-row lg:items-center">
+                        <HeaderTitle
+                            title={'Rekomendasi Buku'}
+                            subtitle={'Buku yang direkomendasikan berdasarkan pola peminjaman anda'}
+                            icon={IconBooks}
+                        />
+                    </div>
+                    <div className="grid gap-4 border-b border-dashed border-muted py-8 md:gap-8 lg:grid-cols-4">
+                        {props.book_recommendations.map((recommendation, index) => (
+                            <BookCard item={recommendation.recommendedBook} key={index} />
+                        ))}
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

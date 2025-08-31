@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\Admin\TransactionLoanResource;
 use App\Http\Resources\Admin\TransactionReturnBookResource;
+use App\Http\Resources\BookRecommendationResource;
 use App\Models\Book;
+use App\Models\BookRecommendation;
 use App\Models\Fine;
 use App\Models\Loan;
 use App\Models\ReturnBook;
@@ -17,6 +19,27 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        $user = Auth::user();
+
+        $personalizedRecs = collect();
+
+        if ($user->hasRole('member')) {
+            $lastLoans = Loan::where('user_id', $user->id)
+                ->latest('loan_date')
+                ->pluck('book_id');
+
+            $uniqueids = BookRecommendation::selectRaw('MIN(id) as id')
+                ->groupBy('recommended_book_id')
+                ->pluck('id');
+
+            $personalizedRecs = BookRecommendation::with('recommendedBook')
+                ->whereIn('book_id', $lastLoans)
+                ->whereIn('id', $uniqueids)
+                ->distinct('recommended_book_id')
+                ->orderByDesc('confidence')
+                ->take(5)
+                ->get();
+        }
 
         $loans = Loan::query()
             ->select(['id', 'loan_code', 'book_id', 'user_id', 'created_at'])
@@ -39,6 +62,7 @@ class DashboardController extends Controller
                 'title' => 'Dashboard',
                 'subtitle' => 'Menampilkan semua statistik pada platform ini',
             ],
+            'book_recommendations' => BookRecommendationResource::collection($personalizedRecs),
             'page_data' => [
                 'transactionChart' => $this->chart(),
                 'loans' => TransactionLoanResource::collection($loans),

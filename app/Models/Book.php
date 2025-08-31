@@ -15,6 +15,11 @@ class Book extends Model
 {
     protected $guarded = [];
 
+    public function recommendations()
+    {
+        return $this->hasMany(BookRecommendation::class, 'book_id');
+    }
+
 
     protected function casts()
     {
