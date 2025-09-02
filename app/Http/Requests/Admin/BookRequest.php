@@ -25,9 +25,9 @@ class BookRequest extends FormRequest
     {
         return [
             'title' => 'required|min:3|max:255|string',
-            'author' => 'required|min:3|max:255|string',
+            'author' => 'required|min:3|max:150|string',
             'publication_year' => 'required|numeric|integer',
-            'isbn' => 'required|string|max:255',
+            'isbn' => 'required|string|max:20',
             'language' =>  [
                 'required',
                 new Enum(BookLanguage::class),

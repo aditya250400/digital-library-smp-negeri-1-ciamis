@@ -22,10 +22,10 @@ class PublisherRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|min:3|max:255',
-            'address' => 'nullable|string|max:255',
-            'email' => 'nullable|email|string|max:255',
-            'phone' => 'nullable|string|max:15',
+            'name' => 'required|string|min:3|max:150',
+            'address' => 'nullable|string|max:150',
+            'email' => 'nullable|email|string|max:100',
+            'phone' => 'nullable|string|max:20',
             'logo' => 'nullable|mimes:png,jpg,webp|max:2048'
         ];
     }
